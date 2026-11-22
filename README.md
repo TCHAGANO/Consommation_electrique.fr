@@ -1,22 +1,22 @@
-# ⚡ Prévision de la consommation électrique nationale (Données RTE)
+# Prévision de la consommation électrique nationale (Données RTE)
 
 Modélisation et prévision à court terme de la demande électrique française journalière selon la méthodologie **Box-Jenkins (SARIMA)** sous **R**, accompagnée d'un tableau de bord interactif **Power BI**.
 
 ---
 
-## 🎯 Objectif du projet
+##  Objectif du projet
 Anticiper la courbe de charge électrique nationale sur un horizon opérationnel de **7 à 28 jours** en modélisant la saisonnalité hebdomadaire (alternance jours ouvrés / week-ends) observée sur le réseau de transport d'électricité français (**RTE**).
 
 ---
 
-## 📊 Données & Prétraitement
+##  Données & Prétraitement
 * **Source :** Open Data RTE (Réseau de Transport d'Électricité).
 * **Périmètre :** ~3 000 observations journalières (2018 – 2026).
 * **Qualité des données :** Gestion des passages à l'heure d'été et d'hiver (agrégation des doublons d'octobre et interpolation linéaire des créneaux manquants de mars pour garantir 48 demi-heures exactes par jour).
 
 ---
 
-## 🛠️ Méthodologie (Approche Box-Jenkins)
+##  Méthodologie (Approche Box-Jenkins)
 
 1. **Analyse exploratoire & Stationnarisation :**
    * Identification d'une forte saisonnalité hebdomadaire (`s = 7`) avec une baisse marquée de la consommation le samedi et le dimanche.
@@ -32,7 +32,7 @@ Anticiper la courbe de charge électrique nationale sur un horizon opérationnel
 
 ---
 
-## 📈 Résultats & Validation (Train / Test chronologique)
+##  Résultats & Validation (Train / Test chronologique)
 
 Afin d'éviter toute fuite de données (*data leakage*), un découpage strictement chronologique a été appliqué pour évaluer le modèle sur deux horizons :
 
@@ -48,20 +48,20 @@ Afin d'éviter toute fuite de données (*data leakage*), un découpage stricteme
 
 ---
 
-## 🖼️ Aperçu des résultats visuels
+##  Aperçu des résultats visuels
 
 ### Prévision SARIMA vs Réalité (Échantillon Test - 28 jours)
 ![Prévision SARIMA vs Réalité](graphiques/prevision_vs_realite.png)
 
 ---
 
-## 🚀 Pistes d'amélioration (Mise en production)
+##  Pistes d'amélioration (Mise en production)
 * **Modélisation multivariée (`SARIMAX`) :** Intégration de la **température** (thermosensibilité du réseau français) et du **calendrier des jours fériés** comme variables exogènes.
 * **Double saisonnalité :** Ajout de **termes de Fourier** pour capturer simultanément le cycle hebdomadaire (`s = 7`) et le cycle annuel (`s = 365,25`).
 * **Validation robuste :** Évaluation par validation croisée glissante (*rolling window*).
 
 ---
 
-## 💻 Stack technique
+##  Stack technique
 * **Analyse & Modélisation :** R (`forecast`, `tseries`, `dplyr`, `lubridate`)
 * **Data Visualization & BI :** Power BI Desktop (DAX, Power Query)
