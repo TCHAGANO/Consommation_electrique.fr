@@ -1,6 +1,6 @@
 # Prévision de la consommation électrique nationale (Données RTE)
 
-Modélisation et prévision à court terme de la demande électrique française journalière selon la méthodologie **Box-Jenkins (SARIMA)** sous **R**, accompagnée d'un tableau de bord interactif **Power BI**.
+Modélisation et prévision à court terme de la demande électrique française journalière selon la méthodologie **Box-Jenkins (SARIMA)** sous **R**
 
 ---
 
